@@ -1,0 +1,33 @@
+form h2 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.input-box{
+    margin-top: 20px;
+}
+
+.input-box-btn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-label{
+    font-size: 20px;
+}
+
+.field{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 16px;
+    color: black;
+    margin-top: 8px;
+}
