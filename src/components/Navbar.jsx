@@ -32,11 +32,15 @@ const Navbar = () => {
         </div>
       </div>
       <div className="m-8 gap-8 flex justify-center items-center text-2xl">
+        <a href="https://www.linkedin.com/in/manikandan-durairaj-281b1b180" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin />
+        </a>   
+        <a href="https://github.com/Manikandan-code-source?tab=repositories" target="_blank" rel="noopener noreferrer">
         <FaGithub />
-        <FaLinkedin />
+        </a>          
         <Button onClick={handleModel} className='text-white bg-transparent border-none'>Mail Me</Button>
-        <Button href='http://drive.google.com/file/d/1QJFtOsP8ZRIdhkRzZFpBB8CsmMYdtYL3/view' target='_blank' className='text-white bg-transparent border-none'>My Resume</Button>
-        <Modal width={'1000px'}  open={showModel} onOk={handleOk} onCancel={handleCancel} footer={null}>
+        <Button href='https://drive.google.com/file/d/1s08VFDf99B6cH0jFPIy-hR2IcNd91aAK/view?usp=sharing' target='_blank' className='text-white bg-transparent border-none'>My Resume</Button>
+        <Modal width={'1000px'} open={showModel} onOk={handleOk} onCancel={handleCancel} footer={null}>
           <ContactMe />
         </Modal>
       </div>
