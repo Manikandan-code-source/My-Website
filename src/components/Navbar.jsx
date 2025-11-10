@@ -39,7 +39,7 @@ const Navbar = () => {
         <FaGithub />
         </a>          
         <Button onClick={handleModel} className='text-white bg-transparent border-none'>Mail Me</Button>
-        <Button href='https://drive.google.com/file/d/1s08VFDf99B6cH0jFPIy-hR2IcNd91aAK/view?usp=sharing' target='_blank' className='text-white bg-transparent border-none'>My Resume</Button>
+        <Button href='https://drive.google.com/file/d/1L8rj3Z2xF_pq545WMBP2Cy317GTYcRuM/view?usp=sharing' target='_blank' className='text-white bg-transparent border-none'>My Resume</Button>
         <Modal width={'1000px'} open={showModel} onOk={handleOk} onCancel={handleCancel} footer={null}>
           <ContactMe />
         </Modal>
