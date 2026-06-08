@@ -49,28 +49,28 @@ const Services = () => {
     <section id="services" className="py-32 relative" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 dark:text-white">
             <span className="text-accent-blue block text-2xl font-normal tracking-widest uppercase mb-4">What I Do</span>
             My Expertise
           </h2>
-          <p className="max-w-md text-gray-400 text-lg">
+          <p className="max-w-md text-gray-600 dark:text-gray-400 text-lg">
             Delivering end-to-end solutions from conceptual design to scalable cloud deployments.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="service-card group border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] p-10 md:p-12 transition-colors duration-500 rounded-3xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 text-6xl font-black text-white/5 group-hover:text-accent-cyan/10 transition-colors duration-500">
+            <div key={index} className="service-card group border border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.02] hover:bg-gray-50 dark:hover:bg-white/[0.05] p-10 md:p-12 transition-colors duration-500 rounded-3xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 text-6xl font-black text-black/5 dark:text-white/5 group-hover:text-accent-cyan/10 transition-colors duration-500">
                 {service.id}
               </div>
-              <h3 className="text-3xl font-bold text-white mb-6 relative z-10">{service.title}</h3>
-              <p className="text-gray-400 leading-relaxed relative z-10">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 relative z-10">{service.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed relative z-10">
                 {service.desc}
               </p>
               
               {/* Magnetic arrow button style */}
-              <div className="mt-12 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent-blue group-hover:border-accent-blue group-hover:text-white transition-all duration-300 relative z-10">
+              <div className="mt-12 w-14 h-14 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center group-hover:bg-accent-blue group-hover:border-accent-blue group-hover:text-white transition-all duration-300 relative z-10">
                 <svg className="w-6 h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </div>
             </div>

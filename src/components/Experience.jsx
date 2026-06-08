@@ -98,12 +98,12 @@ const Experience = () => {
       <div className="absolute right-0 top-1/4 w-1/2 h-1/2 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.1),transparent_50%)] -z-10 blur-3xl"></div>
       
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white"><span className="text-accent-cyan">03.</span> Experience</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-gray-900 dark:text-white"><span className="text-accent-cyan">03.</span> Experience</h2>
         
         <div className="timeline-container max-w-4xl mx-auto space-y-12 relative py-4">
           
           {/* Faded Background Line */}
-          <div className="absolute top-0 bottom-0 left-5 md:left-1/2 -translate-x-[1px] w-1 bg-white/5 z-0 rounded-full"></div>
+          <div className="absolute top-0 bottom-0 left-5 md:left-1/2 -translate-x-[1px] w-1 bg-black/5 dark:bg-white/5 z-0 rounded-full"></div>
           
           {/* Drawing Animated Line */}
           <div className="draw-line absolute top-0 bottom-0 left-5 md:left-1/2 -translate-x-[1px] w-1 bg-gradient-to-b from-accent-blue via-accent-cyan to-accent-purple origin-top z-0 rounded-full"></div>
@@ -112,21 +112,21 @@ const Experience = () => {
             <div key={idx} className="timeline-node relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active z-10">
               
               {/* Timeline dot */}
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-accent-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-dark-900 bg-accent-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
               
               {/* Card */}
               <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-2xl hover:border-accent-blue/50 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
-                  <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h3>
                   <div className="flex flex-col items-start sm:items-end gap-1 mt-2 sm:mt-0">
                     <span className="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-3 py-1 rounded-full whitespace-nowrap">{exp.period}</span>
-                    <span className="text-xs text-gray-400 font-medium tracking-wide pr-1">{exp.duration}</span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400 font-medium tracking-wide pr-1">{exp.duration}</span>
                   </div>
                 </div>
-                <div className="text-lg text-gray-300 font-medium mb-1">{exp.company}</div>
+                <div className="text-lg text-gray-800 dark:text-gray-300 font-medium mb-1">{exp.company}</div>
                 <div className="text-sm text-gray-500 mb-4">{exp.location}</div>
                 
-                <ul className="space-y-2 text-sm text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-400">
                   {exp.achievements.map((ach, aIdx) => (
                     <li key={aIdx} className="flex gap-2">
                       <span className="text-accent-blue mt-1">▹</span>

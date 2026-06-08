@@ -1,4 +1,5 @@
 import '../index.css'
+import { ThemeProvider } from '../components/ThemeProvider'
 
 export const metadata = {
   title: 'Manikandan Durairaj - Portfolio',
@@ -7,9 +8,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <div id="root">{children}</div>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div id="root">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   )

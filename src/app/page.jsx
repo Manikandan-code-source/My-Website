@@ -43,7 +43,7 @@ function Page() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-900 text-gray-200">
+    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-dark-900 dark:text-gray-200 transition-colors duration-300">
       <Background />
       <Cursor />
       <Navbar />

@@ -69,35 +69,35 @@ const Projects = () => {
   }, { scope: sectionRef });
 
   return (
-    <section id="projects" className="py-32 bg-dark-900" ref={sectionRef}>
+    <section id="projects" className="py-32 bg-white dark:bg-dark-900 transition-colors duration-300" ref={sectionRef}>
       <div className="container mx-auto px-6">
-        <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white mb-24">
+        <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 dark:text-white mb-24">
           <span className="text-accent-cyan block text-2xl font-normal tracking-widest uppercase mb-4">Selected Work</span>
           Featured Projects
         </h2>
         
         <div className="flex flex-col gap-12">
           {projects.map((project, idx) => (
-            <div key={idx} className="project-row group relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-t border-white/10 pt-12 hover:border-white/30 transition-colors duration-500">
+            <div key={idx} className="project-row group relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-t border-gray-200 dark:border-white/10 pt-12 hover:border-gray-400 dark:hover:border-white/30 transition-colors duration-500">
               
               <div className="lg:col-span-5 relative z-10">
-                <h3 className="text-4xl md:text-5xl font-black text-white mb-4 group-hover:-translate-y-2 transition-transform duration-500">{project.title}</h3>
-                <p className="text-xl text-gray-400 mb-6">{project.subtitle}</p>
+                <h3 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 group-hover:-translate-y-2 transition-transform duration-500">{project.title}</h3>
+                <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">{project.subtitle}</p>
                 <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((tech, tIdx) => (
-                    <span key={tIdx} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
+                    <span key={tIdx} className="px-3 py-1 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-sm text-gray-700 dark:text-gray-300">
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="lg:col-span-7 h-64 lg:h-96 rounded-3xl overflow-hidden relative border border-white/10 bg-dark-800 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-700">
+              <div className="lg:col-span-7 h-64 lg:h-96 rounded-3xl overflow-hidden relative border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-dark-800 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-700">
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-50 group-hover:opacity-100 transition-opacity duration-500`}></div>
                 <div className="relative z-10 px-10">
                   <ul className="space-y-4">
                     {project.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="text-lg md:text-xl text-white/80 font-medium leading-relaxed">
+                      <li key={fIdx} className="text-lg md:text-xl text-gray-800 dark:text-white/80 font-medium leading-relaxed">
                         &mdash; {feature}
                       </li>
                     ))}

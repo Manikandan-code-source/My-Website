@@ -32,9 +32,23 @@ const Background = () => {
 
   return (
     <>
-      {/* 1. Base Dark Grid */}
+      {/* 1. Base Grid (Light Mode) */}
       <div 
-        className="fixed inset-0 z-[-2] pointer-events-none opacity-20"
+        className="fixed inset-0 z-[-2] pointer-events-none opacity-[0.04] block dark:hidden"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #000000 1px, transparent 1px),
+            linear-gradient(to bottom, #000000 1px, transparent 1px)
+          `,
+          backgroundSize: '4rem 4rem',
+          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
+        }}
+      ></div>
+
+      {/* 1. Base Grid (Dark Mode) */}
+      <div 
+        className="fixed inset-0 z-[-2] pointer-events-none opacity-20 hidden dark:block"
         style={{
           backgroundImage: `
             linear-gradient(to right, #ffffff05 1px, transparent 1px),

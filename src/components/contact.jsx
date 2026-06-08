@@ -65,7 +65,7 @@ const Contact = () => {
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white contact-element">
           <span className="text-accent-blue">05.</span> Get In Touch
         </h2>
-        
+
         <div className="max-w-3xl mx-auto glass p-8 md:p-12 rounded-3xl border border-gray-800 contact-element relative overflow-hidden">
           {/* Subtle gradient background for the form */}
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent-blue/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -75,44 +75,44 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-400 font-medium ml-1">Full Name</label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  required 
+                <input
+                  type="text"
+                  name="name"
+                  required
                   placeholder="John Doe"
                   className="w-full bg-dark-900/50 border border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-white outline-none transition-colors"
                 />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-400 font-medium ml-1">Email Address</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  required 
+                <input
+                  type="email"
+                  name="email"
+                  required
                   placeholder="john@example.com"
                   className="w-full bg-dark-900/50 border border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-white outline-none transition-colors"
                 />
               </div>
             </div>
-            
+
             <div className="flex flex-col gap-2">
               <label className="text-sm text-gray-400 font-medium ml-1">Message</label>
-              <textarea 
-                name="message" 
-                required 
+              <textarea
+                name="message"
+                required
                 rows="5"
                 placeholder="How can I help you?"
                 className="w-full bg-dark-900/50 border border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-white outline-none transition-colors resize-none"
               ></textarea>
             </div>
-            
+
             <div className="flex items-center justify-between mt-4">
               <p className={`text-sm ${status === 'error' ? 'text-red-400' : status === 'success' ? 'text-green-400' : 'text-accent-cyan'}`}>
                 {result}
               </p>
-              
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 disabled={status === 'loading'}
                 className="px-8 py-3 bg-accent-blue hover:bg-accent-blue/80 text-white rounded-full font-semibold tracking-wide transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2"
               >

@@ -9,13 +9,13 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-dark-900 text-gray-200 font-sans antialiased overflow-x-hidden selection:bg-accent-purple selection:text-white;
+    @apply bg-gray-50 text-gray-900 dark:bg-dark-900 dark:text-gray-200 font-sans antialiased overflow-x-hidden selection:bg-accent-purple selection:text-white transition-colors duration-300;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+    @apply bg-white/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-white/10 shadow-xl;
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan;

@@ -52,7 +52,7 @@ const Hero = () => {
             <img 
               src="/my pic.jpg" 
               alt="Manikandan Durairaj" 
-              className="w-full h-full object-cover rounded-full border-4 border-dark-900"
+              className="w-full h-full object-cover rounded-full border-4 border-white dark:border-dark-900"
             />
             <div className="absolute inset-0 rounded-full bg-accent-blue/20 blur-xl -z-10 animate-pulse"></div>
           </div>
@@ -61,11 +61,11 @@ const Hero = () => {
           <div className="hero-text inline-block">MANIKANDAN</div><br />
           <div className="hero-text inline-block text-gradient">DURAIRAJ</div>
         </h1>
-        <p className="hero-subtitle text-xl md:text-2xl text-gray-400 font-light mb-10 max-w-2xl mx-auto">
+        <p className="hero-subtitle text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light mb-10 max-w-2xl mx-auto">
           Full Stack Developer crafting scalable, high-performance web applications with React & Node.js.
         </p>
         <div className="hero-btn">
-          <a href="#projects" className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-all text-white font-medium tracking-wide inline-flex items-center gap-2">
+          <a href="#projects" className="px-8 py-4 bg-gray-900/5 hover:bg-gray-900/10 dark:bg-white/10 dark:hover:bg-white/20 border border-gray-900/10 dark:border-white/20 rounded-full transition-all text-gray-900 dark:text-white font-medium tracking-wide inline-flex items-center gap-2">
             View My Work
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
           </a>
