@@ -62,11 +62,11 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 relative" ref={sectionRef}>
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white contact-element">
+        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-gray-900 dark:text-white contact-element">
           <span className="text-accent-blue">05.</span> Get In Touch
         </h2>
 
-        <div className="max-w-3xl mx-auto glass p-8 md:p-12 rounded-3xl border border-gray-800 contact-element relative overflow-hidden">
+        <div className="max-w-3xl mx-auto bg-white dark:bg-white/[0.02] dark:backdrop-blur-md shadow-2xl dark:shadow-none p-8 md:p-12 rounded-3xl border border-gray-200 dark:border-gray-800 contact-element relative overflow-hidden">
           {/* Subtle gradient background for the form */}
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent-blue/10 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -74,35 +74,35 @@ const Contact = () => {
           <form onSubmit={onSubmit} className="relative z-10 flex flex-col gap-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-sm text-gray-400 font-medium ml-1">Full Name</label>
+                <label className="text-sm text-gray-600 dark:text-gray-400 font-medium ml-1">Full Name</label>
                 <input
                   type="text"
                   name="name"
                   required
                   placeholder="John Doe"
-                  className="w-full bg-dark-900/50 border border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-white outline-none transition-colors"
+                  className="w-full bg-gray-50 dark:bg-dark-900/50 border border-gray-200 dark:border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-sm text-gray-400 font-medium ml-1">Email Address</label>
+                <label className="text-sm text-gray-600 dark:text-gray-400 font-medium ml-1">Email Address</label>
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="john@example.com"
-                  className="w-full bg-dark-900/50 border border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-white outline-none transition-colors"
+                  className="w-full bg-gray-50 dark:bg-dark-900/50 border border-gray-200 dark:border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-sm text-gray-400 font-medium ml-1">Message</label>
+              <label className="text-sm text-gray-600 dark:text-gray-400 font-medium ml-1">Message</label>
               <textarea
                 name="message"
                 required
                 rows="5"
                 placeholder="How can I help you?"
-                className="w-full bg-dark-900/50 border border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-white outline-none transition-colors resize-none"
+                className="w-full bg-gray-50 dark:bg-dark-900/50 border border-gray-200 dark:border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors resize-none"
               ></textarea>
             </div>
 
