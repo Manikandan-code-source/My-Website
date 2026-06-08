@@ -7,18 +7,32 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-50 glass">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold font-sans tracking-tighter text-white">
-            MD<span className="text-accent-cyan">.</span>
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between relative">
+          <a href="#" className="flex items-center gap-3 group relative z-10">
+            {/* Monogram Icon */}
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-blue via-accent-cyan to-accent-purple flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.4)] group-hover:shadow-[0_0_25px_rgba(59,130,246,0.6)] group-hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden border border-white/10">
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+              <span className="font-black text-white tracking-tighter text-lg z-10">MD</span>
+            </div>
+            
+            {/* Full Name Typography */}
+            <div className="flex flex-col justify-center">
+              <span className="text-[17px] font-bold font-sans tracking-tight text-white leading-none group-hover:text-accent-cyan transition-colors duration-300">
+                Manikandan
+              </span>
+              <span className="text-[11px] font-semibold tracking-[0.2em] text-gray-400 mt-[3px] leading-none uppercase">
+                Durairaj
+              </span>
+            </div>
           </a>
-          <div className="hidden md:flex space-x-8 items-center text-sm font-medium tracking-wide">
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 space-x-8 items-center text-sm font-medium tracking-wide">
             <a href="#about" className="hover:text-accent-blue transition-colors">About</a>
             <a href="#skills" className="hover:text-accent-blue transition-colors">Skills</a>
             <a href="#experience" className="hover:text-accent-blue transition-colors">Experience</a>
             <a href="#projects" className="hover:text-accent-blue transition-colors">Projects</a>
             <a href="#contact" className="hover:text-accent-blue transition-colors">Contact</a>
           </div>
-          <div className="flex items-center space-x-4 md:space-x-6">
+          <div className="flex items-center space-x-4 md:space-x-6 ml-auto">
             <div className="flex items-center space-x-4">
               <a href="https://www.linkedin.com/in/manikandan-durairaj-281b1b180/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors text-xl">
                 <FaLinkedin />
