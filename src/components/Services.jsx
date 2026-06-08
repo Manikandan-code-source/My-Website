@@ -70,7 +70,7 @@ const Services = () => {
               </p>
               
               {/* Magnetic arrow button style */}
-              <div className="mt-12 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-dark-900 group-hover:scale-110 transition-all duration-300 relative z-10">
+              <div className="mt-12 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent-blue group-hover:border-accent-blue group-hover:text-white transition-all duration-300 relative z-10">
                 <svg className="w-6 h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </div>
             </div>

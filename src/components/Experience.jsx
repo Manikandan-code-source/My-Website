@@ -10,6 +10,7 @@ const experiences = [
     role: "Full Stack Developer Lead",
     company: "Dvilite",
     period: "Apr 2026 – Jun 2026",
+    duration: "3 mos",
     location: "Bangalore, India",
     achievements: [
       "Led a cross-functional React.js and Node.js team of 4 developers, delivering Konnectly platform 2 weeks ahead of schedule.",
@@ -21,6 +22,7 @@ const experiences = [
     role: "Junior Software Developer",
     company: "Angler Technologies Private Limited",
     period: "Jan 2025 – Feb 2026",
+    duration: "1 yr 2 mos",
     location: "Coimbatore, India",
     achievements: [
       "Developed a full-featured IMS-QMS Audit module for KSB India Private Limited, reducing manual audit effort by 40%.",
@@ -32,6 +34,7 @@ const experiences = [
     role: "Junior Software Developer",
     company: "Toverto Solutions Private Limited",
     period: "Jul 2023 – Sep 2024",
+    duration: "1 yr 3 mos",
     location: "Coimbatore, India",
     achievements: [
       "Delivered full-stack features for 2 US-based clients (Cotton Foundation & Landry's Select Club) using React.js and Angular.js.",
@@ -43,6 +46,7 @@ const experiences = [
     role: "Web Developer Intern",
     company: "DotWorld Technologies",
     period: "Mar 2023 – Jun 2023",
+    duration: "4 mos",
     location: "Coimbatore, India",
     achievements: [
       "Built and maintained responsive web interfaces using HTML5, CSS3, and JavaScript.",
@@ -114,7 +118,10 @@ const Experience = () => {
               <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-2xl hover:border-accent-blue/50 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
                   <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                  <span className="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-3 py-1 rounded-full whitespace-nowrap">{exp.period}</span>
+                  <div className="flex flex-col items-start sm:items-end gap-1 mt-2 sm:mt-0">
+                    <span className="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-3 py-1 rounded-full whitespace-nowrap">{exp.period}</span>
+                    <span className="text-xs text-gray-400 font-medium tracking-wide pr-1">{exp.duration}</span>
+                  </div>
                 </div>
                 <div className="text-lg text-gray-300 font-medium mb-1">{exp.company}</div>
                 <div className="text-sm text-gray-500 mb-4">{exp.location}</div>
