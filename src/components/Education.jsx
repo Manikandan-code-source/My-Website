@@ -48,7 +48,7 @@ const Education = () => {
           
           <div className="flex flex-col md:items-end justify-center">
             <p className="text-xl font-medium text-dark-900/80 mb-6 max-w-sm md:text-right">
-              Currently seeking a Full Stack Developer role. Let's build something extraordinary together.
+              Currently seeking a Full Stack Developer role. Let&apos;s build something extraordinary together.
             </p>
             <a href="mailto:haridurai1234@gmail.com" className="group flex items-center gap-4 px-8 py-4 bg-dark-900 text-white rounded-full text-lg font-bold hover:bg-dark-800 transition-colors">
               <FaEnvelope /> haridurai1234@gmail.com
@@ -60,7 +60,7 @@ const Education = () => {
         {/* Massive Typography Footer */}
         <div className="mt-20 overflow-hidden relative flex items-center justify-center w-full">
           <h2 className="footer-massive-text text-[11vw] sm:text-[10vw] font-black tracking-tighter leading-none text-dark-900 whitespace-nowrap opacity-90 text-center w-full">
-            LET'S CONNECT
+            LET&apos;S CONNECT
           </h2>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { gsap as gs } from 'gsap';
 
@@ -49,9 +50,11 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative z-10 text-center">
         <div className="hero-avatar mb-8 flex justify-center">
           <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan hero-avatar-img">
-            <img 
+            <Image 
               src="/my pic.jpg" 
-              alt="Manikandan Durairaj" 
+              alt="Manikandan Durairaj"
+              width={192}
+              height={192}
               className="w-full h-full object-cover rounded-full border-4 border-white dark:border-dark-900"
             />
             <div className="absolute inset-0 rounded-full bg-accent-blue/20 blur-xl -z-10 animate-pulse"></div>
