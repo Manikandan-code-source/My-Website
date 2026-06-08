@@ -1,41 +1,78 @@
-/* eslint-disable no-unused-vars */
-import React from 'react';
-import { HERO_CONTENT } from "../constants";
-import profilepic from "../assets/my-image.jpg"
-import { delay, motion } from 'framer-motion';
-
-const container = (delay) => ({
-  hidden: { x: -100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      delay: delay
-    }
-  }
-})
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap as gs } from 'gsap';
 
 const Hero = () => {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gs.timeline();
+    tl.from('.hero-avatar', {
+      scale: 0,
+      opacity: 0,
+      duration: 1,
+      ease: 'back.out(1.5)',
+    })
+    .from('.hero-text', {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: 'power4.out',
+    }, "-=0.5")
+    .from('.hero-subtitle', {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    }, "-=0.5")
+    .from('.hero-btn', {
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'back.out(1.7)'
+    }, "-=0.3");
+
+    // Add subtle floating animation to the avatar
+    gs.to('.hero-avatar-img', {
+      y: -15,
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut'
+    });
+  }, { scope: container });
+
   return (
-    <div className='border-b border-neutral-900 lg:pb-4 lg:mb-35'>
-      <div className='flex flex-wrap'>
-        <div className='w-full lg:w-1/2'>
-          <div className='flex flex-col items-center lg:items-start my-12'>
-            <motion.h1 variants={container(0)} initial="hidden" animate="visible" className='pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl'>Manikandan Durairaj</motion.h1>
-            <motion.span variants={container(0.5)} initial="hidden" animate="visible" className='bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent'>Software Developer || <span><br /></span>AWS Cloud Practioner</motion.span>
-            <motion.p variants={container(1)} initial="hidden" animate="visible" className='my-2 max-w-xl py-6 font-light tracking-tighter'>{HERO_CONTENT}</motion.p>
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-20 relative" ref={container}>
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15),transparent_50%)]"></div>
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="hero-avatar mb-8 flex justify-center">
+          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan hero-avatar-img">
+            <img 
+              src="/my pic.jpg" 
+              alt="Manikandan Durairaj" 
+              className="w-full h-full object-cover rounded-full border-4 border-dark-900"
+            />
+            <div className="absolute inset-0 rounded-full bg-accent-blue/20 blur-xl -z-10 animate-pulse"></div>
           </div>
         </div>
-        <div className='w-full lg:w-1/2 lg:p-8'>
-          <div className='flex justify-center my-12'>
-            <motion.img initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}
-              src={profilepic} alt='Profile not found' />
-          </div>
+        <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-4 overflow-hidden">
+          <div className="hero-text inline-block">MANIKANDAN</div><br />
+          <div className="hero-text inline-block text-gradient">DURAIRAJ</div>
+        </h1>
+        <p className="hero-subtitle text-xl md:text-2xl text-gray-400 font-light mb-10 max-w-2xl mx-auto">
+          Full Stack Developer crafting scalable, high-performance web applications with React & Node.js.
+        </p>
+        <div className="hero-btn">
+          <a href="#projects" className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-all text-white font-medium tracking-wide inline-flex items-center gap-2">
+            View My Work
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+          </a>
         </div>
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
-export default Hero
+export default Hero;

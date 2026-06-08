@@ -1,37 +1,74 @@
-import { motion } from "framer-motion";
-import aboutImg from "../assets/about.jpg";
-import { ABOUT_TEXT } from "../constants";
+import React, { useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-  return (
-    <div className='border-b border-neutral-900 pb-4'>
-      <h1 className='my-20 text-center text-4xl'>About
-        <span className='text-neutral-500'> Me</span>
-      </h1>
-      <div
-        className='flex flex-wrap'>
-        <motion.div
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-          className='w-full lg:w-1/2 lg:p-8 '>
-          <div className='flex items-center justify-center'>
-            <img className='rounded-2xl' src={aboutImg} alt='image not found' />
-          </div>
-        </motion.div>
-        <motion.div
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 100 }}
-          transition={{ duration: 0.5 }}
-          className='w-full lg:w-1/2'>
-          <div className='flex justify-center lg:justify-start'>
-            <p className='my-2 py-6'>{ABOUT_TEXT}</p>
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  )
-}
+  const sectionRef = useRef(null);
 
-export default About
+  useGSAP(() => {
+    gsap.from('.about-text', {
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 80%',
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+    });
+    
+    gsap.from('.about-highlight', {
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 70%',
+      },
+      scale: 0.9,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'back.out(1.5)',
+    });
+  }, { scope: sectionRef });
+
+  return (
+    <section id="about" className="py-24 relative" ref={sectionRef}>
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white"><span className="text-accent-blue">01.</span> About Me</h2>
+        
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="about-text text-gray-300 text-lg leading-relaxed space-y-6">
+            <p>
+              I am a results-driven Full Stack Developer with 3+ years of experience designing, developing, and deploying scalable web applications for US-based clients and enterprise platforms.
+            </p>
+            <p>
+              Proficient in <span className="text-white font-medium">React.js, Node.js, Angular.js, MongoDB, PostgreSQL, and AWS</span> cloud infrastructure. I thrive in Agile environments, delivering end-to-end projects from system design to production deployment.
+            </p>
+            <p>
+              My focus is on leading cross-functional teams, mentoring junior developers, building secure RESTful APIs, and crafting intuitive, high-performance user interfaces.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-6">
+            <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center">
+              <span className="text-4xl font-bold text-accent-cyan mb-2">3+</span>
+              <span className="text-sm text-gray-400">Years Experience</span>
+            </div>
+            <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center">
+              <span className="text-4xl font-bold text-accent-purple mb-2">4+</span>
+              <span className="text-sm text-gray-400">Enterprise Apps</span>
+            </div>
+            <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center col-span-2">
+              <span className="text-3xl font-bold text-accent-blue mb-2">100%</span>
+              <span className="text-sm text-gray-400">Commitment to scalable, secure code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

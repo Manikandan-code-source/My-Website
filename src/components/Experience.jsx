@@ -1,29 +1,114 @@
-/* eslint-disable react/jsx-key */
-import {EXPERIENCES} from "../constants";
+import React, { useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
+gsap.registerPlugin(ScrollTrigger);
+
+const experiences = [
+  {
+    role: "Full Stack Developer Lead",
+    company: "Dvilite",
+    period: "Apr 2026 – Jun 2026",
+    location: "Bangalore, India",
+    achievements: [
+      "Led a cross-functional React.js and Node.js team of 4 developers, delivering Konnectly platform 2 weeks ahead of schedule.",
+      "Mentored 3 junior developers through structured pair programming, reducing team bug rate by 35%.",
+      "Owned end-to-end delivery of Konnectly CRM through AWS deployment, cutting manual business operations effort by 50%."
+    ]
+  },
+  {
+    role: "Junior Software Developer",
+    company: "Angler Technologies Private Limited",
+    period: "Jan 2025 – Feb 2026",
+    location: "Coimbatore, India",
+    achievements: [
+      "Developed a full-featured IMS-QMS Audit module for KSB India Private Limited, reducing manual audit effort by 40%.",
+      "Built an RBAC user management system with 5+ permission levels for full compliance.",
+      "Deployed and maintained production infrastructure on AWS, achieving 99.9% uptime over 13 months."
+    ]
+  },
+  {
+    role: "Junior Software Developer",
+    company: "Toverto Solutions Private Limited",
+    period: "Jul 2023 – Sep 2024",
+    location: "Coimbatore, India",
+    achievements: [
+      "Delivered full-stack features for 2 US-based clients (Cotton Foundation & Landry's Select Club) using React.js and Angular.js.",
+      "Integrated 5+ third-party APIs for loyalty programs, reducing integration development time by 25%.",
+      "Implemented OAuth 2.0 and data encryption, achieving zero security incidents post-launch."
+    ]
+  },
+  {
+    role: "Web Developer Intern",
+    company: "DotWorld Technologies",
+    period: "Mar 2023 – Jun 2023",
+    location: "Coimbatore, India",
+    achievements: [
+      "Built and maintained responsive web interfaces using HTML5, CSS3, and JavaScript.",
+      "Resolved 20+ bugs through systematic debugging and cross-browser testing."
+    ]
+  }
+];
 
 const Experience = () => {
-  return (
-    <div className='border-b border-neutral-900 lg:pb-4'>
-        <h1 className='my-20 text-4xl text-center'>Experience</h1>
-        <div>{EXPERIENCES.map((exp) =>(
-            <div className='mb-8 flex flex-wrap lg:justify-center'>
-                <div className='w-full lg:w-1/4'>
-                <p className='text-sm text-neutral-400'>{exp.year}</p>
-                </div>
-                <div className="w-full max-w-xl lg:w-3/4">
-                <p className='mb-4 font-semibold'>
-                    {exp.role} - <span className='text-[20px] text-purple-400'>{exp.company}</span>
-                </p>
-                <p className='mb-4 text-neutral-400'> {exp.description}</p>
-                {exp.technologies.map((tech,index) =>(
-                    <span className='mr-2 mt-4 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-400' key={index}>{tech}</span>
-                ))}
-                </div>
-            </div>
-        ))}</div>
-    </div>
-  )
-}
+  const sectionRef = useRef(null);
 
-export default Experience
+  useGSAP(() => {
+    const nodes = gsap.utils.toArray('.timeline-node');
+    
+    nodes.forEach((node) => {
+      gsap.from(node, {
+        scrollTrigger: {
+          trigger: node,
+          start: 'top 80%',
+        },
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    });
+  }, { scope: sectionRef });
+
+  return (
+    <section id="experience" className="py-24 relative" ref={sectionRef}>
+      <div className="absolute right-0 top-1/4 w-1/2 h-1/2 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.1),transparent_50%)] -z-10 blur-3xl"></div>
+      
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white"><span className="text-accent-cyan">03.</span> Experience</h2>
+        
+        <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/20 before:to-transparent">
+          {experiences.map((exp, idx) => (
+            <div key={idx} className="timeline-node relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+              
+              {/* Timeline dot */}
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-accent-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
+              
+              {/* Card */}
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-2xl hover:border-accent-blue/50 transition-colors">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
+                  <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                  <span className="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-3 py-1 rounded-full whitespace-nowrap">{exp.period}</span>
+                </div>
+                <div className="text-lg text-gray-300 font-medium mb-1">{exp.company}</div>
+                <div className="text-sm text-gray-500 mb-4">{exp.location}</div>
+                
+                <ul className="space-y-2 text-sm text-gray-400">
+                  {exp.achievements.map((ach, aIdx) => (
+                    <li key={aIdx} className="flex gap-2">
+                      <span className="text-accent-blue mt-1">▹</span>
+                      <span>{ach}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;

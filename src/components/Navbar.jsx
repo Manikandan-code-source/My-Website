@@ -1,48 +1,27 @@
-import myPic from '../assets/My-Pic.jpg';
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useState } from 'react';
-import { Button, Modal } from 'antd';
-import ContactMe from '../Misc/ContactMe';
-
-
+import React from 'react';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Navbar = () => {
-  const [showModel, setShowModel] = useState(false);
-
-  const handleModel = () => {
-    setShowModel(true);
-  };
-
-  const handleOk = () => {
-    setShowModel(false);
-  };
-
-  const handleCancel = () => {
-    setShowModel(false);
-  };
-
   return (
-    <nav className="mb-20 flex flex-center justify-between py-6">
-      <div className="flex flex-shrink-0 items-center">
-        <div className="w-[85px] h-[85px] border-2 border-gray-100 rounded-full p-[8px]">
-          <div
-            className="flex items-center justify-center w-[65px] h-[65px] rounded-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${myPic})` }}
-          ></div>
+    <nav className="fixed top-0 left-0 w-full z-50 glass">
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#" className="text-2xl font-bold font-sans tracking-tighter text-white">
+          MD<span className="text-accent-cyan">.</span>
+        </a>
+        <div className="hidden md:flex space-x-8 items-center text-sm font-medium tracking-wide">
+          <a href="#about" className="hover:text-accent-blue transition-colors">About</a>
+          <a href="#skills" className="hover:text-accent-blue transition-colors">Skills</a>
+          <a href="#experience" className="hover:text-accent-blue transition-colors">Experience</a>
+          <a href="#projects" className="hover:text-accent-blue transition-colors">Projects</a>
         </div>
-      </div>
-      <div className="m-8 gap-8 flex justify-center items-center text-2xl">
-        <a href="https://www.linkedin.com/in/manikandan-durairaj-281b1b180" target="_blank" rel="noopener noreferrer">
-          <FaLinkedin />
-        </a>   
-        <a href="https://github.com/Manikandan-code-source?tab=repositories" target="_blank" rel="noopener noreferrer">
-        <FaGithub />
-        </a>          
-        <Button onClick={handleModel} className='text-white bg-transparent border-none'>Mail Me</Button>
-        <Button href='https://drive.google.com/file/d/1L8rj3Z2xF_pq545WMBP2Cy317GTYcRuM/view?usp=sharing' target='_blank' className='text-white bg-transparent border-none'>My Resume</Button>
-        <Modal width={'1000px'} open={showModel} onOk={handleOk} onCancel={handleCancel} footer={null}>
-          <ContactMe />
-        </Modal>
+        <div className="flex items-center space-x-4">
+          <a href="https://www.linkedin.com/in/manikandandurairaj/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors text-xl">
+            <FaLinkedin />
+          </a>
+          <a href="https://github.com/Manikandan-code-source" target="_blank" rel="noopener noreferrer" className="hover:text-accent-purple transition-colors text-xl">
+            <FaGithub />
+          </a>
+        </div>
       </div>
     </nav>
   );
