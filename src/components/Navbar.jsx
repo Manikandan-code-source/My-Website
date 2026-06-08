@@ -15,7 +15,7 @@ const Navbar = () => {
           <a href="#projects" className="hover:text-accent-blue transition-colors">Projects</a>
         </div>
         <div className="flex items-center space-x-4">
-          <a href="https://www.linkedin.com/in/manikandandurairaj/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors text-xl">
+          <a href="https://www.linkedin.com/in/manikandan-durairaj-281b1b180/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors text-xl">
             <FaLinkedin />
           </a>
           <a href="https://github.com/Manikandan-code-source" target="_blank" rel="noopener noreferrer" className="hover:text-accent-purple transition-colors text-xl">

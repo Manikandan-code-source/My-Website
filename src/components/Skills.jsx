@@ -5,64 +5,73 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const skillCategories = [
-  {
-    title: "Frontend",
-    skills: ["React.js", "Angular.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "HTML5/CSS3"]
-  },
-  {
-    title: "Backend",
-    skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL"]
-  },
-  {
-    title: "Cloud & DevOps",
-    skills: ["AWS (EC2, S3, CloudFront)", "Docker", "Kubernetes", "Jenkins"]
-  },
-  {
-    title: "Databases & Security",
-    skills: ["MongoDB", "PostgreSQL", "SQL", "JWT/OAuth 2.0", "RBAC"]
-  }
-];
-
 const Skills = () => {
   const sectionRef = useRef(null);
 
   useGSAP(() => {
-    const cards = gsap.utils.toArray('.skill-card');
-    
-    cards.forEach((card, i) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.6,
-        delay: i * 0.1,
-        ease: 'power2.out'
-      });
+    gsap.from('.bento-item', {
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 75%',
+        toggleActions: "play reverse play reverse"
+      },
+      y: 100,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 1,
+      ease: 'power3.out'
     });
   }, { scope: sectionRef });
 
   return (
-    <section id="skills" className="py-24 bg-dark-800/50" ref={sectionRef}>
+    <section id="skills" className="py-32 bg-dark-800" ref={sectionRef}>
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white"><span className="text-accent-purple">02.</span> Technical Skills</h2>
+        <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white mb-16">
+          <span className="text-accent-purple block text-2xl font-normal tracking-widest uppercase mb-4">Toolkit</span>
+          Technical Arsenal
+        </h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category, idx) => (
-            <div key={idx} className="skill-card glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-              <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">{category.title}</h3>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, sIdx) => (
-                  <span key={sIdx} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+        {/* Bento Box Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+          
+          {/* Box 1: Large Core Frontend */}
+          <div className="bento-item md:col-span-2 md:row-span-1 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col justify-end relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.2),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <h3 className="text-3xl font-bold text-white mb-4 z-10">Frontend Excellence</h3>
+            <div className="flex flex-wrap gap-3 z-10">
+              {['React.js', 'Next.js', 'Angular.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'GSAP'].map(skill => (
+                <span key={skill} className="px-4 py-2 bg-dark-900/50 backdrop-blur-md rounded-full text-gray-300 border border-white/5">{skill}</span>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Box 2: Databases */}
+          <div className="bento-item md:col-span-1 md:row-span-1 bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(6,182,212,0.2),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="text-accent-cyan text-4xl mb-auto">⛁</div>
+            <h3 className="text-2xl font-bold text-white mb-4 z-10">Databases</h3>
+            <p className="text-gray-400 z-10">MongoDB, PostgreSQL, SQL</p>
+          </div>
+
+          {/* Box 3: Cloud & DevOps */}
+          <div className="bento-item md:col-span-1 md:row-span-1 bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.2),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="text-accent-purple text-4xl mb-auto">☁</div>
+            <h3 className="text-2xl font-bold text-white mb-4 z-10">Cloud & DevOps</h3>
+            <p className="text-gray-400 z-10">AWS, Docker, Jenkins, Kubernetes</p>
+          </div>
+
+          {/* Box 4: Backend & Security */}
+          <div className="bento-item md:col-span-2 md:row-span-1 bg-dark-900 border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col justify-end relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
+            <h3 className="text-3xl font-bold text-white mb-4 z-10">Backend & Security</h3>
+            <div className="flex flex-wrap gap-3 z-10">
+              {['Node.js', 'Express.js', 'GraphQL', 'REST APIs', 'JWT', 'OAuth 2.0', 'RBAC'].map(skill => (
+                <span key={skill} className="px-4 py-2 bg-white/5 rounded-full text-gray-300 border border-white/10">{skill}</span>
+              ))}
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>

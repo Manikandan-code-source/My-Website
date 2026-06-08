@@ -55,18 +55,36 @@ const Experience = () => {
   const sectionRef = useRef(null);
 
   useGSAP(() => {
+    // Draw the timeline line downwards on scroll
+    gsap.fromTo('.draw-line', 
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: '.timeline-container',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
+        }
+      }
+    );
+
     const nodes = gsap.utils.toArray('.timeline-node');
     
     nodes.forEach((node) => {
+      // Pop up the experience cards when the line reaches them
       gsap.from(node, {
         scrollTrigger: {
           trigger: node,
-          start: 'top 80%',
+          start: 'top center', // Triggers exactly when the line reaches this node
+          toggleActions: "play reverse play reverse"
         },
-        x: -50,
+        scale: 0.8,
+        y: 50,
         opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
+        duration: 0.6,
+        ease: 'back.out(1.5)'
       });
     });
   }, { scope: sectionRef });
@@ -78,9 +96,16 @@ const Experience = () => {
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white"><span className="text-accent-cyan">03.</span> Experience</h2>
         
-        <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/20 before:to-transparent">
+        <div className="timeline-container max-w-4xl mx-auto space-y-12 relative py-4">
+          
+          {/* Faded Background Line */}
+          <div className="absolute top-0 bottom-0 left-5 md:left-1/2 -translate-x-[1px] w-1 bg-white/5 z-0 rounded-full"></div>
+          
+          {/* Drawing Animated Line */}
+          <div className="draw-line absolute top-0 bottom-0 left-5 md:left-1/2 -translate-x-[1px] w-1 bg-gradient-to-b from-accent-blue via-accent-cyan to-accent-purple origin-top z-0 rounded-full"></div>
+
           {experiences.map((exp, idx) => (
-            <div key={idx} className="timeline-node relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+            <div key={idx} className="timeline-node relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active z-10">
               
               {/* Timeline dot */}
               <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-accent-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>

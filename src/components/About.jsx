@@ -13,6 +13,7 @@ const About = () => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 80%',
+        toggleActions: "play reverse play reverse"
       },
       y: 50,
       opacity: 0,
@@ -24,12 +25,27 @@ const About = () => {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 70%',
+        toggleActions: "play reverse play reverse"
       },
       scale: 0.9,
       opacity: 0,
       duration: 0.8,
       stagger: 0.2,
       ease: 'back.out(1.5)',
+    });
+    gsap.utils.toArray('.counter').forEach(counter => {
+      const target = parseFloat(counter.getAttribute('data-target'));
+      gsap.to(counter, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 70%',
+          toggleActions: "restart reverse restart reverse"
+        },
+        innerText: target,
+        duration: 2.5,
+        snap: { innerText: 1 },
+        ease: 'power3.out',
+      });
     });
   }, { scope: sectionRef });
 
@@ -53,15 +69,21 @@ const About = () => {
           
           <div className="grid grid-cols-2 gap-6">
             <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center">
-              <span className="text-4xl font-bold text-accent-cyan mb-2">3+</span>
+              <div className="text-4xl font-bold text-accent-cyan mb-2 flex items-center justify-center">
+                <span className="counter" data-target="3">0</span>+
+              </div>
               <span className="text-sm text-gray-400">Years Experience</span>
             </div>
             <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center">
-              <span className="text-4xl font-bold text-accent-purple mb-2">4+</span>
+              <div className="text-4xl font-bold text-accent-purple mb-2 flex items-center justify-center">
+                <span className="counter" data-target="4">0</span>+
+              </div>
               <span className="text-sm text-gray-400">Enterprise Apps</span>
             </div>
             <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center col-span-2">
-              <span className="text-3xl font-bold text-accent-blue mb-2">100%</span>
+              <div className="text-3xl font-bold text-accent-blue mb-2 flex items-center justify-center">
+                <span className="counter" data-target="100">0</span>%
+              </div>
               <span className="text-sm text-gray-400">Commitment to scalable, secure code</span>
             </div>
           </div>
