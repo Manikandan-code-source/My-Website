@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { FaLinkedin, FaGithub, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import { useTheme } from 'next-themes';
 
 const Navbar = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isPictureOpen, setIsPictureOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -19,11 +21,19 @@ const Navbar = () => {
       <nav className="fixed top-0 left-0 w-full z-50 glass dark:border-b dark:border-white/10 bg-white/70 dark:bg-dark-900/50 backdrop-blur-md">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between relative">
           <a href="#" className="flex items-center gap-3 group relative z-10">
-            {/* Monogram Icon */}
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-blue via-accent-cyan to-accent-purple flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:shadow-[0_0_15px_rgba(59,130,246,0.4)] group-hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] dark:group-hover:shadow-[0_0_25px_rgba(59,130,246,0.6)] group-hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden border border-black/10 dark:border-white/10">
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-              <span className="font-black text-white tracking-tighter text-lg z-10">MD</span>
-            </div>
+            {/* Avatar Icon */}
+            <button 
+              onClick={(e) => { e.preventDefault(); setIsPictureOpen(true); }}
+              className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden border border-black/10 dark:border-white/10"
+            >
+              <Image 
+                src="/my pic.jpg" 
+                alt="Manikandan Durairaj"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </button>
             
             {/* Full Name Typography */}
             <div className="flex flex-col justify-center">
@@ -126,6 +136,33 @@ const Navbar = () => {
                 title="Resume PDF Viewer"
               ></iframe>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Picture Viewer Modal Overlay */}
+      {isPictureOpen && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-300 cursor-pointer"
+          onClick={() => setIsPictureOpen(false)}
+        >
+          <button 
+            onClick={() => setIsPictureOpen(false)} 
+            className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+          >
+            <FaTimes size={24} />
+          </button>
+          
+          <div 
+            className="relative w-[90vw] max-w-[500px] aspect-square rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] cursor-default"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image 
+              src="/my pic.jpg" 
+              alt="Manikandan Durairaj Full Picture"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       )}
