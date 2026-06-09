@@ -2,6 +2,10 @@
 
 import React, { useEffect } from 'react'
 import Lenis from 'lenis'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger);
 import Cursor from "../components/Cursor"
 import Navbar from "../components/Navbar"
 import Hero from "../components/Hero"
@@ -26,16 +30,21 @@ function Page() {
       smooth: true,
       mouseMultiplier: 1,
       smoothTouch: false,
+      syncTouch: true,
       touchMultiplier: 2,
       infinite: false,
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // Synchronize Lenis scroll with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
 
-    requestAnimationFrame(raf);
+    // Use GSAP's ticker to drive Lenis's requestAnimationFrame
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    // Disable GSAP's lag smoothing to prevent conflicts with Lenis
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FaLinkedin, FaGithub, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaSun, FaMoon, FaBars, FaTimes, FaDownload, FaExternalLinkAlt } from 'react-icons/fa';
 import { useTheme } from 'next-themes';
 
 const Navbar = () => {
@@ -111,30 +111,39 @@ const Navbar = () => {
             
             {/* Modal Header */}
             <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#0a0a0a]">
-              <div className="flex items-center gap-3">
-                <span className="w-3 h-3 rounded-full bg-accent-blue animate-pulse"></span>
-                <h3 className="text-gray-900 dark:text-white font-bold tracking-wide">Manikandan_Resume.pdf</h3>
+              <div className="flex items-center gap-3 overflow-hidden">
+                <span className="w-3 h-3 rounded-full bg-accent-blue animate-pulse flex-shrink-0"></span>
+                <h3 className="text-gray-900 dark:text-white font-bold tracking-wide truncate">Manikandan_Resume.pdf</h3>
               </div>
-              <div className="flex items-center gap-4">
-                <a href="/Manikandan_Resume.pdf" download className="text-sm text-accent-cyan hover:text-accent-blue transition-colors">
-                  Download
+              <div className="flex items-center gap-2 sm:gap-4 ml-4 flex-shrink-0">
+                <a href="/Manikandan_Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full text-gray-500 hover:text-accent-blue dark:text-gray-400 dark:hover:text-accent-cyan transition-colors bg-black/5 dark:bg-white/5" title="Open in new tab">
+                  <FaExternalLinkAlt size={14} />
+                </a>
+                <a href="/Manikandan_Resume.pdf" download className="w-8 h-8 flex items-center justify-center rounded-full text-gray-500 hover:text-accent-blue dark:text-gray-400 dark:hover:text-accent-cyan transition-colors bg-black/5 dark:bg-white/5" title="Download Resume">
+                  <FaDownload size={14} />
                 </a>
                 <button 
                   onClick={() => setIsResumeOpen(false)} 
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-red-500/10 dark:hover:bg-red-500/20 text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors"
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-red-500/10 dark:hover:bg-red-500/20 text-gray-500 dark:text-gray-400 hover:text-red-500 transition-colors ml-1"
                 >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                  <FaTimes size={16} />
                 </button>
               </div>
             </div>
             
             {/* Modal Body (PDF Viewer) */}
-            <div className="flex-1 w-full bg-gray-100 dark:bg-black">
-              <iframe 
-                src="/Manikandan_Resume.pdf#toolbar=0" 
-                className="w-full h-full border-none" 
-                title="Resume PDF Viewer"
-              ></iframe>
+            <div className="flex-1 w-full bg-gray-100 dark:bg-black overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <object 
+                data="/Manikandan_Resume.pdf#toolbar=0" 
+                type="application/pdf"
+                className="w-full h-[150vh] sm:h-full border-none"
+              >
+                <iframe 
+                  src="/Manikandan_Resume.pdf#toolbar=0" 
+                  className="w-full h-full border-none" 
+                  title="Resume PDF Viewer"
+                ></iframe>
+              </object>
             </div>
           </div>
         </div>

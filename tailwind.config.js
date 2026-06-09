@@ -20,7 +20,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Outfit', 'Inter', 'sans-serif'],
+        sans: ['var(--font-outfit)', 'var(--font-inter)', 'sans-serif'],
         mono: ['Fira Code', 'monospace'],
       },
       backgroundImage: {
