@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaSun, FaMoon } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import { useTheme } from 'next-themes';
 
 const Navbar = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -65,8 +66,32 @@ const Navbar = () => {
             >
               Resume
             </button>
+            <button 
+              className="md:hidden p-2 text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Mobile Menu"
+            >
+              {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-dark-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 shadow-xl py-6 flex flex-col items-center gap-6 animate-in slide-in-from-top-2 duration-300">
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-accent-blue transition-colors">About</a>
+            <a href="#skills" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-accent-blue transition-colors">Skills</a>
+            <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-accent-blue transition-colors">Experience</a>
+            <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-accent-blue transition-colors">Projects</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-accent-blue transition-colors">Contact</a>
+            <button 
+              onClick={() => { setIsMobileMenuOpen(false); setIsResumeOpen(true); }}
+              className="mt-2 px-8 py-3 sm:hidden bg-accent-blue/10 text-accent-cyan border border-accent-blue/50 rounded-full font-semibold tracking-wide"
+            >
+              View Resume
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* Resume Modal Overlay */}

@@ -94,7 +94,7 @@ const Experience = () => {
   }, { scope: sectionRef });
 
   return (
-    <section id="experience" className="py-24 relative" ref={sectionRef}>
+    <section id="experience" className="py-16 md:py-24 relative" ref={sectionRef}>
       <div className="absolute right-0 top-1/4 w-1/2 h-1/2 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.1),transparent_50%)] -z-10 blur-3xl"></div>
       
       <div className="container mx-auto px-6">
@@ -115,7 +115,7 @@ const Experience = () => {
               <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-dark-900 bg-accent-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"></div>
               
               {/* Card */}
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-2xl hover:border-accent-blue/50 transition-colors">
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-5 md:p-6 rounded-2xl hover:border-accent-blue/50 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h3>
                   <div className="flex flex-col items-start sm:items-end gap-1 mt-2 sm:mt-0">

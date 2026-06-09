@@ -67,7 +67,7 @@ const About = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center">
               <div className="text-4xl font-bold text-accent-cyan mb-2 flex items-center justify-center">
                 <span className="counter" data-target="3">0</span>+
@@ -80,7 +80,7 @@ const About = () => {
               </div>
               <span className="text-sm text-gray-500 dark:text-gray-400">Enterprise Apps</span>
             </div>
-            <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center col-span-2">
+            <div className="about-highlight glass p-6 rounded-2xl flex flex-col justify-center items-center text-center sm:col-span-2">
               <div className="text-3xl font-bold text-accent-blue mb-2 flex items-center justify-center">
                 <span className="counter" data-target="100">0</span>%
               </div>

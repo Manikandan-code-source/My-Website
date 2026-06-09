@@ -66,43 +66,43 @@ const Contact = () => {
           <span className="text-accent-blue">05.</span> Get In Touch
         </h2>
 
-        <div className="max-w-3xl mx-auto bg-white dark:bg-white/[0.02] dark:backdrop-blur-md shadow-2xl dark:shadow-none p-8 md:p-12 rounded-3xl border border-gray-200 dark:border-gray-800 contact-element relative overflow-hidden">
+        <div className="max-w-4xl mx-auto bg-white dark:bg-dark-800/50 dark:backdrop-blur-2xl shadow-[0_0_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_0_50px_-12px_rgba(255,255,255,0.02)] p-8 md:p-14 rounded-[2.5rem] border border-gray-200 dark:border-white/10 contact-element relative overflow-hidden group">
           {/* Subtle gradient background for the form */}
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent-blue/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent-blue/10 dark:bg-accent-blue/20 rounded-full blur-3xl pointer-events-none group-hover:bg-accent-blue/20 dark:group-hover:bg-accent-blue/30 transition-colors duration-700"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-cyan/10 dark:bg-accent-cyan/20 rounded-full blur-3xl pointer-events-none group-hover:bg-accent-cyan/20 dark:group-hover:bg-accent-cyan/30 transition-colors duration-700"></div>
 
           <form onSubmit={onSubmit} className="relative z-10 flex flex-col gap-6">
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
-                <label className="text-sm text-gray-600 dark:text-gray-400 font-medium ml-1">Full Name</label>
+              <div className="flex flex-col">
+                <label className="text-sm font-semibold tracking-wide text-gray-700 dark:text-gray-300 mb-2 pl-1">Full Name</label>
                 <input
                   type="text"
                   name="name"
                   required
                   placeholder="John Doe"
-                  className="w-full bg-gray-50 dark:bg-dark-900/50 border border-gray-200 dark:border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors"
+                  className="w-full bg-gray-100 dark:bg-white/5 border border-transparent focus:border-accent-blue focus:bg-white dark:focus:bg-dark-900 rounded-2xl px-5 py-4 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all duration-300 shadow-inner dark:shadow-none"
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-sm text-gray-600 dark:text-gray-400 font-medium ml-1">Email Address</label>
+              <div className="flex flex-col">
+                <label className="text-sm font-semibold tracking-wide text-gray-700 dark:text-gray-300 mb-2 pl-1">Email Address</label>
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="john@example.com"
-                  className="w-full bg-gray-50 dark:bg-dark-900/50 border border-gray-200 dark:border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors"
+                  className="w-full bg-gray-100 dark:bg-white/5 border border-transparent focus:border-accent-blue focus:bg-white dark:focus:bg-dark-900 rounded-2xl px-5 py-4 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all duration-300 shadow-inner dark:shadow-none"
                 />
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <label className="text-sm text-gray-600 dark:text-gray-400 font-medium ml-1">Message</label>
+            <div className="flex flex-col">
+              <label className="text-sm font-semibold tracking-wide text-gray-700 dark:text-gray-300 mb-2 pl-1">Message</label>
               <textarea
                 name="message"
                 required
                 rows="5"
                 placeholder="How can I help you?"
-                className="w-full bg-gray-50 dark:bg-dark-900/50 border border-gray-200 dark:border-gray-700 focus:border-accent-blue rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors resize-none"
+                className="w-full bg-gray-100 dark:bg-white/5 border border-transparent focus:border-accent-blue focus:bg-white dark:focus:bg-dark-900 rounded-2xl px-5 py-4 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all duration-300 shadow-inner dark:shadow-none resize-none"
               ></textarea>
             </div>
 
@@ -114,7 +114,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="px-8 py-3 bg-accent-blue hover:bg-accent-blue/80 text-white rounded-full font-semibold tracking-wide transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-10 py-4 bg-gradient-to-r from-accent-blue to-accent-cyan text-white rounded-full font-bold tracking-wide shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center gap-3"
               >
                 {status === 'loading' ? (
                   <>
@@ -122,7 +122,10 @@ const Contact = () => {
                     Sending...
                   </>
                 ) : (
-                  "Send Message"
+                  <>
+                    Send Message
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </>
                 )}
               </button>
             </div>

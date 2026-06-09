@@ -46,9 +46,9 @@ const Services = () => {
   }, { scope: sectionRef });
 
   return (
-    <section id="services" className="py-32 relative" ref={sectionRef}>
+    <section id="services" className="py-20 md:py-32 relative" ref={sectionRef}>
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 dark:text-white">
             <span className="text-accent-blue block text-2xl font-normal tracking-widest uppercase mb-4">What I Do</span>
             My Expertise
@@ -60,8 +60,8 @@ const Services = () => {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="service-card group border border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.02] dark:hover:bg-white/[0.05] shadow-md dark:shadow-none p-10 md:p-12 transition-all duration-500 rounded-3xl relative overflow-hidden dark:hover:-translate-y-1">
-              <div className="absolute top-0 right-0 p-8 text-6xl font-black text-gray-100 dark:text-white/5 dark:group-hover:text-accent-cyan/10 transition-colors duration-500">
+            <div key={index} className="service-card group border border-gray-200 dark:border-white/10 bg-white dark:bg-white/[0.02] dark:hover:bg-white/[0.05] shadow-md dark:shadow-none p-6 sm:p-8 md:p-12 transition-all duration-500 rounded-3xl relative overflow-hidden dark:hover:-translate-y-1">
+              <div className="absolute top-0 right-0 p-6 md:p-8 text-5xl md:text-6xl font-black text-gray-100 dark:text-white/5 dark:group-hover:text-accent-cyan/10 transition-colors duration-500">
                 {service.id}
               </div>
               <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 relative z-10">{service.title}</h3>
